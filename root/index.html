@@ -13,20 +13,11 @@
     <script>
       const urlPrams = new URLSearchParams(window.location.search);
       const username = urlPrams.get("username");
-      async function getData() {
-        const url = "https://api.scratch.mit.edu/users/doubleshotespresso/";
-        try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-          }
-      
-          const json = await response.json();
-          alert(json);
-        } catch (error) {
-          console.error(error.message);
-        }
-      }
+      const getData = () => {
+      fetch("https://reqres.in/api/users?page=2").then(response => {
+        alert(response.json());
+      })
+      };
       getData();
     </script>
   </body>
