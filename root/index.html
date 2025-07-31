@@ -13,7 +13,19 @@
     <script>
       const urlPrams = new URLSearchParams(window.location.search);
       const username = urlPrams.get("username");
-      alert(username);
+      fetch("https://api.scratch.mit.edu/users/"+username)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          alert(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     </script>
   </body>
 </html>
