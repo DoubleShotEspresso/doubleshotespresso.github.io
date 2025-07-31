@@ -5,6 +5,7 @@
   </head>
   <body>
     <p style="color:#ffffff" id="foobar">foobar</p>
+    <button style="background-color:#ffffff" onclick="getData();">Test</button>
     <style>
       body{
         background-color: #000000;
@@ -13,12 +14,11 @@
     <script>
       const urlPrams = new URLSearchParams(window.location.search);
       const username = urlPrams.get("username");
-      async function getData = () => {
-      await fetch("https://reqres.in/api/users?page=2").then(response => {
-        alert(response.json());
-      })
-      };
-      getData();
+      const getData = () => {
+        fetch("https://reqres.in/api/users?page=2").then(response => {
+          console.log(response.json());
+        })
+      }
     </script>
   </body>
 </html>
