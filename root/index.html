@@ -13,8 +13,8 @@
     <script>
       const urlPrams = new URLSearchParams(window.location.search);
       const username = urlPrams.get("username");
-      const getData = () => {
-      fetch("https://reqres.in/api/users?page=2").then(response => {
+      async function getData = () => {
+      await fetch("https://reqres.in/api/users?page=2").then(response => {
         alert(response.json());
       })
       };
