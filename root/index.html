@@ -14,7 +14,7 @@
       const urlPrams = new URLSearchParams(window.location.search);
       const username = urlPrams.get("username");
       async function fetchData() {
-      const url = "https://jsonplaceholder.typicode.com/todos/1";
+      const url = prompt("Url:");
       try {
         const response = await fetch(url);
         if (!response.ok) {
